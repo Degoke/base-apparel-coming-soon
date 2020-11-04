@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,600;1,400&display=swap");
+
+$SofRed: hsl(0, 93%, 68%);
+$DesaturatedRed: hsl(0, 36%, 70%);
+$DarkGrayishRed: hsl(0, 6%, 24%);
+$gradient1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+$gradient2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background: $gradient1;
+  font-size: 1rem;
+  color: $DesaturatedRed;
+  font-weight: 600;
+}
+
+.wrapper {
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 0.7fr 3fr 8fr;
+  margin: auto;
+  grid-row-gap: 1rem;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    transform: scale(0.8);
+    padding: 2rem 1rem 1rem 1rem;
+  }
+
+  .hero {
+    background-image: url("/images/hero-mobile.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 15rem;
+    background-position: center;
+  }
+
+  .body {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 2.5rem;
+
+    .thick {
+      font-weight: 700;
+      color: $DarkGrayishRed;
+    }
+
+    h1 {
+      letter-spacing: 0.3rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      line-height: 2.5rem;
+      font-weight: 500;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .email {
+    margin-top: 2rem;
+    display: flex;
+
+    #email {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      border: 0.5px solid $SofRed;
+      outline: none;
+
+      &::placeholder {
+        color: $DesaturatedRed;
+      }
+    }
+
+    .error {
+      transform: scaleY(0.4) scaleX(0.8);
+      margin-left: -4.5rem;
+      margin-right: 00.5rem;
+      visibility: hidden;
+    }
+
+    .button {
+      background: $gradient2;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      box-shadow: -1px 17px 20px 0px $DesaturatedRed;
+
+      &:hover {
+        background: $DesaturatedRed;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .error-text {
+    color: $SofRed;
+    visibility: hidden;
+    text-align: start;
+  }
+}
+
+@media all and (min-width: 500px) {
+  body {
+    font-size: 1.2rem;
+
+    .wrapper {
+      width: 50%;
+    }
+  }
+}
+
+@media all and (min-width: 800px) {
+  body {
+    font-size: 1.4rem;
+
+    .wrapper {
+      width: 100vw;
+      min-height: 100vh;
+      grid-template-areas:
+        "one two"
+        "three two";
+      grid-template-rows: 1fr 4fr;
+      background-image: url("/images/bg-pattern-desktop.svg");
+      background-repeat: no-repeat;
+      background-size: fill;
+
+      .logo {
+        grid-area: one;
+        justify-content: center;
+        width: 40vw;
+      }
+
+      .hero {
+        grid-area: two;
+        background-image: url("/images/hero-desktop.jpg");
+        background-repeat: no-repeat;
+        background-size: fill;
+        height: 100%;
+        width: 40vw;
+        background-position: center;
+      }
+
+      .body {
+        grid-area: three;
+        text-align: start;
+        width: 60%;
+
+        h1 {
+          font-size: 3rem;
+          line-height: 3rem;
+          margin-bottom: 1.5rem;
+          letter-spacing: 0.6rem;
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 2000px) {
+  body {
+    font-size: 3rem;
+
+    .wrapper {
+      background-size: cover;
+      .logo {
+        transform: scale(2);
+      }
+
+      .body {
+        width: 70%;
+
+        h1 {
+          font-size: 6rem;
+          line-height: 6rem;
+          letter-spacing: 1.2rem;
+          margin-bottom: 3rem;
+        }
+      }
+
+      .email {
+        margin-top: 4rem;
+
+        #email {
+          padding: 2rem 0 2rem 4rem;
+          border-radius: 60px;
+          font-size: 3rem;
+        }
+
+        .error {
+          transform: scaleX(1.4) scaleY(0.4);
+          margin-left: -10rem;
+          margin-right: 1.5rem;
+        }
+
+        .button {
+          padding: 2rem 6rem;
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+}
